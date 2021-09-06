@@ -6,10 +6,11 @@ from pathlib import Path
 from pprint import pprint
 from ..items import PTTArticleItem
 
-class PttcrawlerSpider(scrapy.Spider):
-    name = 'ptt_worldcup'
-    allowed_domains = ['www.ptt.cc/bbs/WorldCup/M.1625507063.A.0B6.html']
-    start_urls = ['https://www.ptt.cc/bbs/WorldCup/M.1625507063.A.0B6.html']
+# 範例目標網址: https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html
+class PttSpider(scrapy.Spider):
+    name = 'ptt'
+    allowed_domains = ['www.ptt.cc']
+    start_urls = ['https://www.ptt.cc/bbs/LFP/M.1629513792.A.C1C.html']
     cookies = {'over18': '1'}
 
     def start_requests(self):
@@ -139,3 +140,4 @@ class PttcrawlerSpider(scrapy.Spider):
         data['messages'] = messages
         yield data
 
+        
